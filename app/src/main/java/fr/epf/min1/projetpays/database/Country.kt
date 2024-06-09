@@ -3,15 +3,15 @@ package fr.epf.min1.projetpays.database
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "favorite_countries")
+
+@Parcelize
 data class Country(
-    @PrimaryKey val name: Name,
-    val flagUrl: String,
-    val flags: Flags,
-    val capital: List<String>?,
+    val name: String,
+    val capital: String?,
     val region: String,
-    val subregion: String,
     val population: Int,
-    val languages: Map<String, String>
+    val flag: String
 ) : Parcelable
+

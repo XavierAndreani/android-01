@@ -11,4 +11,8 @@ data class CountryEntity(
     val subregion: String,
     val population: Int,
     val languages: String
-)
+) {
+    fun toCountry(): Country {
+        return Country(name, capital, region, population, flagUrl)
+    }
+}
