@@ -16,7 +16,7 @@ class CountryViewModel(application: Application) : AndroidViewModel(application)
     private val repository = CountryRepository(application)
     val allCountries = MutableLiveData<List<Country>>()
     val searchResults = MutableLiveData<List<Country>>()
-    val favoriteCountries: LiveData<List<CountryEntity>> = repository.getAllFavorites()
+    val favoriteCountries: LiveData<List<Country>> = repository.getAllFavorites()
 
     fun fetchAllCountries() {
         viewModelScope.launch {

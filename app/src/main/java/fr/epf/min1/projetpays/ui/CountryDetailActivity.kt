@@ -34,27 +34,26 @@ class CountryDetailActivity : AppCompatActivity() {
         val populationTextView: TextView = findViewById(R.id.populationTextView)
         val languagesTextView: TextView = findViewById(R.id.languagesTextView)
 
-        Glide.with(this).load(country.flags.png).into(flagImageView)
-        nameTextView.text = country.name.official
-        capitalTextView.text = country.capital?.joinToString() ?: "N/A"
+        Glide.with(this).load(country.flag).into(flagImageView)
+        nameTextView.text = country.name
+        capitalTextView.text = country.capital
         regionTextView.text = country.region
         subregionTextView.text = country.subregion
         populationTextView.text = country.population.toString()
-        languagesTextView.text = country.languages.values.joinToString()
+        languagesTextView.text = country.languages
 
         val favoriteButton: Button = findViewById(R.id.favoriteButton)
         favoriteButton.setOnClickListener {
             val countryEntity = CountryEntity(
-                name = country.name.common,
-                flagUrl = country.flags.png,
-                capital = country.capital?.joinToString() ?: "N/A",
+                name = country.name,
+                flagUrl = country.flag,
+                capital = country.capital,
                 region = country.region,
                 subregion = country.subregion,
                 population = country.population,
-                languages = country.languages.values.joinToString()
-            )
+                languages = country.languages)
             viewModel.addFavorite(countryEntity)
-            Toast.makeText(this, "${country.name.common} added to favorites", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${country.name} added to favorites", Toast.LENGTH_SHORT).show()
         }
     }
 }

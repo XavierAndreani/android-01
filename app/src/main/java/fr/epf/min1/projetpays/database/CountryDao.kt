@@ -10,7 +10,7 @@ import androidx.room.Query
 @Dao
 interface CountryDao {
     @Query("SELECT * FROM favorite_countries")
-    fun getAllFavorites(): LiveData<List<CountryEntity>>
+    fun getAllFavorites(): LiveData<List<Country>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFavorite(country: CountryEntity)

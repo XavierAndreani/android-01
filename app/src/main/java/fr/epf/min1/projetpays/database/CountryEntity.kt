@@ -13,6 +13,6 @@ data class CountryEntity(
     val languages: String
 ) {
     fun toCountry(): Country {
-        return Country(name, capital, region, population, flagUrl)
+        return Country(name, capital, region, subregion, population, flagUrl, languages)
     }
 }

@@ -11,7 +11,9 @@ data class Country(
     val name: String,
     val capital: String?,
     val region: String,
+    val subregion: String,
     val population: Int,
-    val flag: String
+    val flag: String,
+    val languages: String
 ) : Parcelable
 
